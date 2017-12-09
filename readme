@@ -1,0 +1,54 @@
+			 __________
+			|          |    
+			|  README  |
+			|__________|
+			
+			
+			
+Installation du logiciel sous LINUX:
+-----------------------------------
+
+	1- Ouvrir un terminal.
+	
+	2- Se placer dans le répertoire contenant le logiciel.
+	
+	3- Il a été prévu un makefile qui gérera toutes les opérations de
+	   compilation pour vous. 
+	   Deux possibilités vous sont offertes:
+	     > Compilation des fichiers correspondant à l'affichage en mode
+	       console (la partie compilation de l'interface graphique est
+	       ignorée), ce type de compilation est prévu dans le cas où les
+	       bibliothèques GTK ne sont pas installées.
+	       Pour cela tapez: $ make mainConsole
+	       
+	     > Compilation complète.
+	       Pour cela tapez: $ make
+
+	4- Pour le lancement du logiciel en mode console, tapez:
+	     > $ ./main console
+	     ou, dans le cas où vous avez utilisé la commande make mainConsole:
+	     > $ ./mainConsole
+	     
+	   Pour le lancement du logiciel en mode graphique, tapez:
+	     > $ ./main
+	     
+	5- Le logiciel est désormais lancé et prêt à l'utilisation.
+	
+
+	
+Installation du logiciel sous WINDOWS:
+-------------------------------------
+
+	1- Il vous faudra pour cela un compilateur C permettant de programmer
+	   en GTK (Visaul Studio, DevCPP patchés selon la méthode expliquée
+	   sur le site suivant: www.gtk-fr.org, section "insatller GTK").
+	   
+	2- Il suffit de compiler le programme et de le lancer comme tout autre
+	   projet que vous développez sur ces environnements de développement.
+	   
+	3- Le logiciel est désormais lancé et prêt à l'utilisation.
+	
+	
+	
+NB: Pour des explications détaillées de l'utilisation du logiciel,
+--  veuillez vous référer au "manuel d'utilisateur".

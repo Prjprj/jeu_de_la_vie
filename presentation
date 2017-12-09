@@ -1,0 +1,47 @@
+
+		><  LA PRESENTATION DU JEU DE LA VIE  ><
+		    --------------------------------
+
+			                        
+> Le jeu de la vie a ete cree par le mathematicien John Horton Conway
+  (ne le 26 decembre 1937 a Liverpool, Angleterre).
+
+> Ce jeu est base sur la creation de populations cellulaires.
+  La naissance et la mort y sont conditionnées par la presence suffisante
+  ou excessive de cellules vivantes dans le voisinage d'une cellule.
+
+> Plusieurs souches de cellules peuvent etre utilisees (de 1 a 9
+  souches) dans une meme experience.
+
+> Generation personnelle ou aleatoire des experiences./
+
+> Chaque case a huit voisins. Une case ne peut contenir qu'une seule
+  cellule et les regles sont celles qui suivent.
+   1- Si le voisinage d'une case contient trois cellules de meme souche
+      alors une cellule nait de ce type de souche.
+   2- Si une cellule est entouree de plus de quatre cellules de souches
+      quelconque, elle meurt etouffee.
+   3- Si une cellule est entouree d'une cellule ou moins, de souche
+      quelconque, elle meurt d'isolement.
+
+> Trois types d'espace: 
+    - un espace torique: ou le haut et la bas se rejoignent, ainsi que
+                         la droite et la gauche;
+    - un espace cylindrique: ou la droite et la gauche se rejoignent;
+    - un espace plat: dit carre, un espace en 2 dimensions./
+
+> Trois types de vitesse (plus une supplementaire en mode console)
+  d'evolution de l'experience:
+    - vitesse d'evolution lente 
+    - vitesse d'evolution normale
+    - vitesse d'evolution rapide
+   (- vitesse d'evolution personnelle).
+
+> Taille de l'espace d'evolution variable selon le choix.
+
+> Possibilite de:
+    - mise en pause
+    - modification des parametres
+    - sauvegarde
+    - chargement.
+*
