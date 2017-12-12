@@ -1,11 +1,10 @@
-					/***********************
-					 *					   *
-					 * FONCTION PRINCIPALE *
-					 *        MAIN         *
-					 *      (main.c)	   *
-					 *                     *
-					 ***********************/
-
+/***********************
+ *					   *
+ * FONCTION PRINCIPALE *
+ *        MAIN         *
+ *      (main.c)	   *
+ *                     *
+ ***********************/
 
 // Inclusion des bibliothèques
 #include"biblio.h"
@@ -15,8 +14,8 @@
 #include"jeu_de_la_vie.h"
 #include"mode_console.h"
 
-int main(int argc,char** argv){
-  mode_console();
-  liberationAllocation();
-  return 0;
-}
+//int main(int argc,char** argv){
+//  mode_console();
+//  liberationAllocation();
+//  return 0;
+//}
