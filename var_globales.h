@@ -1,12 +1,11 @@
-					/*************************************
-					 *									 *
-					 * DECLARATION DE VARIABLES GLOBALES *
-					 *         (var_globales.h)          *
-					 *									 *
-					 *************************************/
+/*************************************
+ *									 *
+ * DECLARATION DE VARIABLES GLOBALES *
+ *         (var_globales.h)          *
+ *									 *
+ *************************************/
 
-
-	/* Variables globales necessaires à tout le jeu */
+/* Variables globales necessaires à tout le jeu */
 Param parametres;
 
 int** matriceG;
@@ -18,8 +17,7 @@ Souche* soucheTempG;
 int nbSouchesG;
 int stationnaire;
 
-
-	/* variables globales necessaires à l'interface graphique */
+/* variables globales necessaires à l'interface graphique */
 int idTimeOut;
 
 int xGener;
