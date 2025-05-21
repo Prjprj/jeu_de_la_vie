@@ -7,8 +7,8 @@
  ******************************/
 
 /* Enregistrement contenant les composantes d'une souche cellulaire,
- à savoir la hauteur, la largeur, le type de cellules, et l'emplacement
- des cellules de la souche stockées dans une matrice */
+ Ã  savoir la hauteur, la largeur, le type de cellules, et l'emplacement
+ des cellules de la souche stockÃ©es dans une matrice */
 typedef struct {
 	int** mat;
 	int largeur;
@@ -19,7 +19,7 @@ typedef struct {
 typedef SoucheCellulaire Souche;
 
 /* Enregistrement contenant les iinformations sur la taille d'une matrice,
- à savoir sa hauteur et sa largeur */
+ Ã  savoir sa hauteur et sa largeur */
 typedef struct {
 	int hauteur;
 	int largeur;
@@ -27,8 +27,8 @@ typedef struct {
 
 typedef TailleMatrice Taille;
 
-/* Enregistrement contenant les paramètres d'une souche multi-cellulaire,
- à savoir le type d'espace, la taille et la vitesse de l'expérience */
+/* Enregistrement contenant les paramÃ¨tres d'une souche multi-cellulaire,
+ Ã  savoir le type d'espace, la taille et la vitesse de l'expÃ©rience */
 typedef struct {
 	char espace;
 	Taille taille;

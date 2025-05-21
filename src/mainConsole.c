@@ -6,7 +6,7 @@
  *                     *
  ***********************/
 
-// Inclusion des bibliothèques
+// Inclusion des bibliothÃ¨ques
 #include"biblio.h"
 #include"constantes.h"
 #include"types.h"

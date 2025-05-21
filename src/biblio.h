@@ -5,7 +5,7 @@
  *								 *
  *********************************/
 
-/* Inclusion des bibliotheques necessaires à tout le jeu */
+/* Inclusion des bibliotheques necessaires Ã  tout le jeu */
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>

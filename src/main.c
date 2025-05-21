@@ -6,7 +6,7 @@
  *                     *
  ***********************/
 
-// Inclusion des biblioth�ques
+// Inclusion des bibliothèques
 #include"biblio.h"
 #include"constantes.h"
 #include"types.h"
@@ -17,7 +17,7 @@
 
 Programme *pApp;
 
-/* Variables globales necessaires � tout le jeu */
+/* Variables globales necessaires à tout le jeu */
 Param parametres;
 
 int** matriceG;
@@ -29,7 +29,7 @@ Souche* soucheTempG;
 int nbSouchesG;
 int stationnaire;
 
-/* variables globales necessaires � l'interface graphique */
+/* variables globales necessaires à l'interface graphique */
 int idTimeOut;
 
 int xGener;
@@ -61,7 +61,7 @@ int main(int argc, char** argv) {
 			acceuil(pApp->fenetre, (gpointer*) pApp);
 			//lancement de la boucle d'evenements
 			gtk_main();
-			//liberation de la memoire apr�s la fin de la boucle d'evenements
+			//liberation de la memoire après la fin de la boucle d'evenements
 			g_free(pApp);
 		}
 	} else {
@@ -82,7 +82,7 @@ int main(int argc, char** argv) {
 			acceuil(pApp->fenetre, (gpointer*) pApp);
 			//lancement de la boucle d'evenements
 			gtk_main();
-			//liberation de la memoire apr�s la fin de la boucle d'evenements
+			//liberation de la memoire après la fin de la boucle d'evenements
 			g_free(pApp);
 		}
 	}

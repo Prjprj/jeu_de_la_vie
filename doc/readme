@@ -10,29 +10,29 @@ Installation du logiciel sous LINUX:
 
 	1- Ouvrir un terminal.
 	
-	2- Se placer dans le répertoire contenant le logiciel.
+	2- Se placer dans le rÃ©pertoire contenant le logiciel.
 	
-	3- Il a été prévu un makefile qui gérera toutes les opérations de
+	3- Il a Ã©tÃ© prÃ©vu un makefile qui gÃªrera toutes les opÃ©rations de
 	   compilation pour vous. 
-	   Deux possibilités vous sont offertes:
-	     > Compilation des fichiers correspondant à l'affichage en mode
+	   Deux possibilitÃ©s vous sont offertes:
+	     > Compilation des fichiers correspondant Ã  l'affichage en mode
 	       console (la partie compilation de l'interface graphique est
-	       ignorée), ce type de compilation est prévu dans le cas où les
-	       bibliothèques GTK ne sont pas installées.
+	       ignorÃ©e), ce type de compilation est prÃ©vu dans le cas oÃ¹ les
+	       bibliothÃ¨ques GTK ne sont pas installÃ©es.
 	       Pour cela tapez: $ make mainConsole
 	       
-	     > Compilation complète.
+	     > Compilation complÃªte.
 	       Pour cela tapez: $ make
 
 	4- Pour le lancement du logiciel en mode console, tapez:
 	     > $ ./main console
-	     ou, dans le cas où vous avez utilisé la commande make mainConsole:
+	     ou, dans le cas oÃ¹ vous avez utilisÃ© la commande make mainConsole:
 	     > $ ./mainConsole
 	     
 	   Pour le lancement du logiciel en mode graphique, tapez:
 	     > $ ./main
 	     
-	5- Le logiciel est désormais lancé et prêt à l'utilisation.
+	5- Le logiciel est dÃ©sormais lancÃ© et prÃªt Ã  l'utilisation.
 	
 
 	
@@ -40,15 +40,15 @@ Installation du logiciel sous WINDOWS:
 -------------------------------------
 
 	1- Il vous faudra pour cela un compilateur C permettant de programmer
-	   en GTK (Visaul Studio, DevCPP patchés selon la méthode expliquée
+	   en GTK (Visaul Studio, DevCPP patchÃ©s selon la mÃ©thode expliquÃ©e
 	   sur le site suivant: www.gtk-fr.org, section "insatller GTK").
 	   
 	2- Il suffit de compiler le programme et de le lancer comme tout autre
-	   projet que vous développez sur ces environnements de développement.
+	   projet que vous dÃ©veloppez sur ces environnements de dÃ©veloppement.
 	   
-	3- Le logiciel est désormais lancé et prêt à l'utilisation.
+	3- Le logiciel est dÃ©sormais lancÃ© et prÃªt Ã  l'utilisation.
 	
 	
 	
-NB: Pour des explications détaillées de l'utilisation du logiciel,
---  veuillez vous référer au "manuel d'utilisateur".
+NB: Pour des explications dÃ©taillÃ©es de l'utilisation du logiciel,
+--  veuillez vous rÃ©fÃ©rer au "manuel d'utilisateur".

@@ -5,7 +5,7 @@
  *									 *
  *************************************/
 
-/* Variables globales necessaires � tout le jeu */
+/* Variables globales necessaires à tout le jeu */
 extern Param parametres;
 
 extern int** matriceG;
@@ -17,7 +17,7 @@ extern Souche* soucheTempG;
 extern int nbSouchesG;
 extern int stationnaire;
 
-/* variables globales necessaires � l'interface graphique */
+/* variables globales necessaires à l'interface graphique */
 extern int idTimeOut;
 
 extern int xGener;

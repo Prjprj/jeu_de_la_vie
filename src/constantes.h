@@ -16,7 +16,7 @@
 #define ESPACE_PAR_DEFAUT	ESPACE_TORIQUE
 
 /* Definition de la constante de vitesse par defaut,
- à savoir la vitesse norame: 2 */
+ Ã  savoir la vitesse noramle: 2 */
 #define VITESSE_PAR_DEFAUT	2
 
 /* Definition des constantes pour les reponses aux boites de dialogue
