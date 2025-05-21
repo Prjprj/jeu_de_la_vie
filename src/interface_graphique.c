@@ -13,7 +13,7 @@
 
 //allocation dynamique des objets composant une fenetre
 void allocationDynGraph(int nbBoitesV, int nbBoitesH, int nbLabels,
-		int nbBoutons, int nbImages, int nbEntrees) {
+		int nbBoutons, int nbImages, int nbEntrees, int nbTables, int nbBoutonsTablesX, int nbBoutonsTablesY) {
 	pApp->nbBoitesV = nbBoitesV;
 	pApp->boitesV = (BoiteVerticale*) malloc(
 			pApp->nbBoitesV * sizeof(BoiteVerticale));
@@ -28,6 +28,14 @@ void allocationDynGraph(int nbBoitesV, int nbBoitesH, int nbLabels,
 	pApp->images = (Image*) malloc(pApp->nbImages * sizeof(Image));
 	pApp->nbEntrees = nbEntrees;
 	pApp->entrees = (Entree*) malloc(pApp->nbEntrees * sizeof(Entree));
+	pApp->nbTables = nbTables;
+	pApp->tables = (Table*) malloc(pApp->nbTables * sizeof(Table));
+	pApp->nbBoutonsTablesX = nbBoutonsTablesX;
+	pApp->nbBoutonsTablesY = nbBoutonsTablesY;
+	pApp->boutonsTables = (Bouton**) malloc(pApp->nbBoutonsTablesX *  sizeof(Bouton*));
+	for(int i = 0; i < pApp->nbBoutonsTablesX; i++) {
+    	pApp->boutonsTables[i] = (Bouton*) malloc(pApp->nbBoutonsTablesY * sizeof(Bouton));
+	}
 }
 
 //procedure de desallocation de la memoire dynamique allouee
@@ -118,7 +126,7 @@ void nouvelleExp(PWidget pWidget, gpointer pData) {
 	//destruction des composants de la fenetre precedente
 	destructionWidget();
 	//creation des composants de la fenetre
-	allocationDynGraph(1, 1, 0, 4, 1, 0);
+	allocationDynGraph(1, 1, 0, 4, 1, 0, 0, 0, 0);
 	pApp->boitesV[0] = gtk_vbox_new(TRUE, 0);
 	pApp->boitesH[0] = gtk_hbox_new(TRUE, 0);
 	pApp->boutons[0] = gtk_button_new_with_label("Generation Automatique");
@@ -165,7 +173,7 @@ void parametresGraph(PWidget pWidget, gpointer pData) {
 	//destruction des composants de la fenetre precedente
 	destructionWidget();
 	//creation des composants de la fenetre
-	allocationDynGraph(2, 1, 4, 4, 0, 0);
+	allocationDynGraph(2, 1, 4, 4, 0, 0, 0, 0, 0);
 	pApp->boitesH[0] = gtk_hbox_new(TRUE, 0);
 	pApp->boitesV[0] = gtk_vbox_new(TRUE, 0);
 	pApp->boitesV[1] = gtk_vbox_new(TRUE, 0);
@@ -422,7 +430,7 @@ void explications(PWidget pWidget, gpointer pData) {
 	//destruction des elements de la precedente fenetre
 	destructionWidget();
 	//creation des elements de la fenetre
-	allocationDynGraph(1, 0, 3, 1, 0, 0);
+	allocationDynGraph(1, 0, 3, 1, 0, 0, 0, 0, 0);
 	pApp->boitesV[0] = gtk_vbox_new(FALSE, 0);
 	pApp->boutons[0] = gtk_button_new_with_label("Retour");
 	pApp->labels[0] = gtk_label_new(chaine1);
@@ -457,7 +465,7 @@ void pauseGraph(PWidget pWidget, gpointer pData) {
 	//destruction des elements de la precedente fenetre
 	destructionWidget();
 	//creation des elements de la fenetre
-	allocationDynGraph(1, 1, 1, 5, 0, 0);
+	allocationDynGraph(1, 1, 1, 5, 0, 0, 0, 0, 0);
 	//fermeture du timeout lance dans l'algo (duquel on vient pour arriver dans cette fenetre)
 	gtk_timeout_remove(idTimeOut);
 	pApp->boitesV[0] = gtk_vbox_new(TRUE, 0);
@@ -510,17 +518,56 @@ gint algo2(gpointer pData) {
 	//verification d'un etat stationnaire
 	if (stationnaire == 0) {
 		//affichage de la matrice representant l'experience
-		chaine = intToCharMatrice(matriceG, parametres.taille);
-		gtk_label_set_text(GTK_LABEL(pApp->labels[0]), chaine);
+		//chaine = intToCharMatrice(matriceG, parametres.taille);
+		//gtk_label_set_text(GTK_LABEL(pApp->labels[0]), chaine);
+		refreshTableBoutons();
 		gtk_label_set_text(GTK_LABEL(pApp->labels[1]), "Etat Stationnaire");
 		//fermeture du timeout permettant l'application periodique de l'algorithme
 		gtk_timeout_remove(idTimeOut);
 	} else {
 		//affichage de la matrice representant l'experience
-		chaine = intToCharMatrice(matriceG, parametres.taille);
-		gtk_label_set_text(GTK_LABEL(pApp->labels[0]), chaine);
+		//chaine = intToCharMatrice(matriceG, parametres.taille);
+		//gtk_label_set_text(GTK_LABEL(pApp->labels[0]), chaine);
+		refreshTableBoutons();
 	}
 	return (TRUE);
+}
+
+// Mise à jour des boutons pour la table d'affichage de l'expérience
+void refreshTableBoutons(){
+	for(int i=0; i<parametres.taille.hauteur; i=i+1){
+		for(int j=0; j<parametres.taille.largeur; j=j+1){
+			char chaine[1];
+				
+			if(matriceG[i][j]==0){
+				gtk_button_set_label(pApp->boutonsTables[i][j] ," ");
+			}
+			else{					
+				sprintf(chaine, "%d", matriceG[i][j]);
+
+				gtk_button_set_label(pApp->boutonsTables[i][j] ,chaine);
+			}
+		}
+	}
+}
+
+// Création des boutons pour la table d'affichage de l'expérience
+void createTableBoutons(){
+	for(int i=0; i<parametres.taille.hauteur; i=i+1){
+		for(int j=0; j<parametres.taille.largeur; j=j+1){
+			char chaine[1];
+
+			if(matriceG[i][j]==0){
+				pApp->boutonsTables[i][j] = gtk_button_new_with_label(" ");
+			}
+			else{
+				sprintf(chaine, "%d", matriceG[i][j]);
+				pApp->boutonsTables[i][j] = gtk_button_new_with_label(chaine);
+			}
+
+			gtk_table_attach_defaults(pApp->tables[0],G_OBJECT(pApp->boutonsTables[i][j]),i+0,i+1,j+0,j+1);
+		}
+	}
 }
 
 //signal permettant l'affichage de la fenetre de l'algorithme
@@ -534,17 +581,21 @@ void algo(PWidget pWidget, gpointer pData) {
 	//destruction des elements de la precedente fenetre
 	destructionWidget();
 	//creation des elements de la fenetre
-	allocationDynGraph(2, 1, 2, 2, 0, 0);
+	allocationDynGraph(2, 1, 2, 2, 0, 0, 1,parametres.taille.hauteur,parametres.taille.largeur);
 	pApp->boitesH[0] = gtk_hbox_new(TRUE, 0);
 	pApp->boitesV[0] = gtk_vbox_new(TRUE, 0);
 	pApp->boitesV[1] = gtk_vbox_new(FALSE, 0);
 	pApp->boutons[0] = gtk_button_new_with_label("Pause");
 	pApp->boutons[1] = gtk_button_new_with_label("Quitter");
-	chaine = intToCharMatrice(matriceG, parametres.taille);
-	pApp->labels[0] = gtk_label_new(chaine);
+	pApp->tables[0] = gtk_table_new(parametres.taille.hauteur,parametres.taille.largeur,TRUE);
+
+	createTableBoutons();
+
+	//chaine = intToCharMatrice(matriceG, parametres.taille);
+	//pApp->labels[0] = gtk_label_new(chaine);
 	pApp->labels[1] = gtk_label_new(" ");
 	//insertion des elements dans les boites associees
-	gtk_box_pack_start(GTK_BOX(pApp->boitesV[1]), pApp->labels[0], FALSE, FALSE,
+	gtk_box_pack_start(GTK_BOX(pApp->boitesV[1]), pApp->tables[0], FALSE, FALSE,
 			0);
 	gtk_box_pack_start(GTK_BOX(pApp->boitesV[1]), pApp->labels[1], FALSE, FALSE,
 			0);
@@ -719,7 +770,7 @@ void generationAuto(PWidget pWidget, gpointer pData) {
 	//destruction des elements de la precedente fenetre
 	destructionWidget();
 	//creation des elements de la fenetre
-	allocationDynGraph(2, 1, 2, 3, 0, 0);
+	allocationDynGraph(2, 1, 2, 3, 0, 0, 0, 0, 0);
 	//initialisation des variables globales necessaires a l'experience
 	soucheG = (Souche*) malloc(nbSouchesG * sizeof(Souche));
 	soucheTempG = (Souche*) malloc(nbSouchesG * sizeof(Souche));
@@ -778,7 +829,7 @@ void generationUtilisateur(PWidget pWidget, gpointer pData) {
 		//destruction des elements de la precedente fenetre
 		destructionWidget();
 		//creation des elements de la fenetre
-		allocationDynGraph(1, 7, 8, 14, 0, 0);
+		allocationDynGraph(1, 7, 8, 14, 0, 0, 0, 0, 0);
 		pApp->boitesH[0] = gtk_hbox_new(TRUE, 0);
 		pApp->boitesH[1] = gtk_hbox_new(TRUE, 0);
 		pApp->boitesH[2] = gtk_hbox_new(TRUE, 0);
@@ -1103,7 +1154,7 @@ void acceuil(PWidget pWidget, gpointer pData) {
 	//destruction des objets de la fenetre de parametres
 	destructionWidget();
 	//creation des elements de la fenetre
-	allocationDynGraph(1, 1, 0, 4, 1, 0);
+	allocationDynGraph(1, 1, 0, 4, 1, 0, 0, 0, 0);
 	//creation des boites
 	pApp->boitesV[0] = gtk_vbox_new(TRUE, 0);
 	pApp->boitesH[0] = gtk_hbox_new(TRUE, 0);
