@@ -9,7 +9,7 @@
 #include "biblio.h"
 #include "constantes.h"
 #include "types.h"
-#include "Interface_graphique.h"
+#include "interface_graphique.h"
 
 //allocation dynamique des objets composant une fenetre
 void allocationDynGraph(int nbBoitesV, int nbBoitesH, int nbLabels,

@@ -13,9 +13,9 @@ SRC_PATH = src
 TMP_PATH = tmp
 OUT_PATH = dist
 
-main: jeu_de_la_vie.o Interface_graphique.o mode_console.o jeu_de_la_vie.o $(SRC_PATH)/main.c
+main: jeu_de_la_vie.o interface_graphique.o mode_console.o jeu_de_la_vie.o $(SRC_PATH)/main.c
 	@echo Edition des liens
-	@gcc -o $(OUT_PATH)/main $(SRC_PATH)/main.c $(TMP_PATH)/Interface_graphique.o $(TMP_PATH)/mode_console.o $(TMP_PATH)/jeu_de_la_vie.o -Wall $(GTK_LIB)
+	@gcc -o $(OUT_PATH)/main $(SRC_PATH)/main.c $(TMP_PATH)/interface_graphique.o $(TMP_PATH)/mode_console.o $(TMP_PATH)/jeu_de_la_vie.o -Wall $(GTK_LIB)
 
 mainConsole: mode_console.o jeu_de_la_vie.o $(SRC_PATH)/mainConsole.c
 	@echo Edition des liens
@@ -25,10 +25,10 @@ jeu_de_la_vie.o: init $(SRC_PATH)/jeu_de_la_vie.c $(SRC_PATH)/jeu_de_la_vie.h
 	@echo Compilation de jeu_de_la_vie.c
 	@gcc -c $(SRC_PATH)/jeu_de_la_vie.c -o $(TMP_PATH)/jeu_de_la_vie.o
 
-Interface_graphique.o: $(SRC_PATH)/Interface_graphique.c $(SRC_PATH)/Interface_graphique.h jeu_de_la_vie.o
-	@echo Compilation de Interface_graphique.c
+interface_graphique.o: $(SRC_PATH)/interface_graphique.c $(SRC_PATH)/interface_graphique.h jeu_de_la_vie.o
+	@echo Compilation de interface_graphique.c
 	@echo Les warnings qui suivent cette compilation sont presents car l edition des liens n est pas faite
-	@gcc -c $(SRC_PATH)/Interface_graphique.c -o $(TMP_PATH)/Interface_graphique.o -Wall $(GTK_LIB)
+	@gcc -c $(SRC_PATH)/interface_graphique.c -o $(TMP_PATH)/interface_graphique.o -Wall $(GTK_LIB)
 
 mode_console.o: $(SRC_PATH)/mode_console.c $(SRC_PATH)/mode_console.h jeu_de_la_vie.o
 	@echo Compilation de mode_console.c

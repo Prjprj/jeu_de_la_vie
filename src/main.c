@@ -12,7 +12,7 @@
 #include"types.h"
 #include"var_globales.h"
 #include"jeu_de_la_vie.h"
-#include"Interface_graphique.h"
+#include"interface_graphique.h"
 #include"mode_console.h"
 
 Programme *pApp;
