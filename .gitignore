@@ -6,5 +6,4 @@
 /Build (GNU)/
 *.o
 main
-/.vs/
 /.vscode/
