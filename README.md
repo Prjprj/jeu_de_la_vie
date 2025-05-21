@@ -35,6 +35,6 @@ export LIBGL_ALWAYS_INDIRECT=1export DISPLAY=$(ip route | awk '/^default/{print 
 ```
 - Installer MobaXterm
 - Lancer MobaXterm et activer le serveur X
-- Lancer le programme compilé main
+- Lancer le programme compilé main dans le dossier dist
 - Accepter dans MobaXterm la connexion distante
 - Le jeu démarre
