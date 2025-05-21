@@ -5,26 +5,26 @@
  *									 *
  *************************************/
 
-/* Variables globales necessaires à tout le jeu */
-Param parametres;
+/* Variables globales necessaires ï¿½ tout le jeu */
+extern Param parametres;
 
-int** matriceG;
-int** matriceTempG;
+extern int** matriceG;
+extern int** matriceTempG;
 
-Souche* soucheG;
-Souche* soucheTempG;
+extern Souche* soucheG;
+extern Souche* soucheTempG;
 
-int nbSouchesG;
-int stationnaire;
+extern int nbSouchesG;
+extern int stationnaire;
 
-/* variables globales necessaires à l'interface graphique */
-int idTimeOut;
+/* variables globales necessaires ï¿½ l'interface graphique */
+extern int idTimeOut;
 
-int xGener;
-int yGener;
-int soucheGener;
-int nbSouchesGener;
-int** matriceGener;
+extern int xGener;
+extern int yGener;
+extern int soucheGener;
+extern int nbSouchesGener;
+extern int** matriceGener;
 
-int jeuEnCours;
-int generEnCours;
+extern int jeuEnCours;
+extern int generEnCours;

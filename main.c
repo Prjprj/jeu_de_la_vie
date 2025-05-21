@@ -6,7 +6,7 @@
  *                     *
  ***********************/
 
-// Inclusion des bibliothèques
+// Inclusion des bibliothï¿½ques
 #include"biblio.h"
 #include"constantes.h"
 #include"types.h"
@@ -14,6 +14,32 @@
 #include"jeu_de_la_vie.h"
 #include"Interface_graphique.h"
 #include"mode_console.h"
+
+Programme *pApp;
+
+/* Variables globales necessaires ï¿½ tout le jeu */
+Param parametres;
+
+int** matriceG;
+int** matriceTempG;
+
+Souche* soucheG;
+Souche* soucheTempG;
+
+int nbSouchesG;
+int stationnaire;
+
+/* variables globales necessaires ï¿½ l'interface graphique */
+int idTimeOut;
+
+int xGener;
+int yGener;
+int soucheGener;
+int nbSouchesGener;
+int** matriceGener;
+
+int jeuEnCours;
+int generEnCours;
 
 int main(int argc, char** argv) {
 	if (argc == 2) {
@@ -35,7 +61,7 @@ int main(int argc, char** argv) {
 			acceuil(pApp->fenetre, (gpointer*) pApp);
 			//lancement de la boucle d'evenements
 			gtk_main();
-			//liberation de la memoire après la fin de la boucle d'evenements
+			//liberation de la memoire aprï¿½s la fin de la boucle d'evenements
 			g_free(pApp);
 		}
 	} else {
@@ -56,7 +82,7 @@ int main(int argc, char** argv) {
 			acceuil(pApp->fenetre, (gpointer*) pApp);
 			//lancement de la boucle d'evenements
 			gtk_main();
-			//liberation de la memoire après la fin de la boucle d'evenements
+			//liberation de la memoire aprï¿½s la fin de la boucle d'evenements
 			g_free(pApp);
 		}
 	}

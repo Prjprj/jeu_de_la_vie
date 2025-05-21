@@ -39,7 +39,7 @@ typedef struct {
 } Programme;
 
 //definition de la variable globale necessaire a l'interface graphique
-Programme *pApp;
+extern Programme *pApp;
 
 //definition des prototypes des fonctions de l'interface graphique
 void allocationDynGraph(int, int, int, int, int, int);

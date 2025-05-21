@@ -5,14 +5,14 @@
  *                   *
  *********************/
 
-/* Inclusion des bibliothèques */
+/* Inclusion des bibliothï¿½ques */
 #include"biblio.h"
 #include"constantes.h"
 #include"types.h"
 #include"var_globales.h"
 #include"jeu_de_la_vie.h"
 
-/* Fonction permettant de lire un caractère entré sur la sortie
+/* Fonction permettant de lire un caractï¿½re entrï¿½ sur la sortie
  standard et de le transformer en entier */
 int litEntier() {
 	char s[256];
@@ -21,14 +21,14 @@ int litEntier() {
 }
 
 /* Fontion permettant de lire sur la sortie standard le premier
- caractère tapé, et d'ignorer le reste */
+ caractï¿½re tapï¿½, et d'ignorer le reste */
 char litPremierCarac() {
 	char s[256];
 	fgets(s, 255, stdin);
 	return s[0];
 }
 
-/* Fonction permettant de lire une chaîne de caractères entrée
+/* Fonction permettant de lire une chaï¿½ne de caractï¿½res entrï¿½e
  sur la sortir standard */
 char* litCaractere() {
 	char* s;
@@ -37,7 +37,7 @@ char* litCaractere() {
 	return (s);
 }
 
-/* Transforme un tableau d'entiers à deux dimensions représentant
+/* Transforme un tableau d'entiers ï¿½ deux dimensions reprï¿½sentant
  une matice en une chaine de caracteres */
 char* intToCharMatrice(int** mat, Taille dim) {
 	char* resultat;
@@ -59,7 +59,7 @@ char* intToCharMatrice(int** mat, Taille dim) {
 	return (intToCharMatriceAvecEspace(resultat));
 }
 
-/* Remplace les "0" une chaine de caractères représentant une matrice
+/* Remplace les "0" une chaine de caractï¿½res reprï¿½sentant une matrice
  par des "_" */
 char* intToCharMatriceAvecEspace(char* chaine) {
 	char *resultat;
@@ -79,8 +79,8 @@ char* intToCharMatriceAvecEspace(char* chaine) {
 }
 
 /* Transforme une chaine de caracteres contenant en fait une matrice
- en un tableau d'entiers à deux dimensions sans retour chariot
- à la fin de chaque ligne de la matrice */
+ en un tableau d'entiers ï¿½ deux dimensions sans retour chariot
+ ï¿½ la fin de chaque ligne de la matrice */
 char* intToCharMatriceSansEnter(int** mat, Taille dim) {
 	char* resultat;
 	int hauteur, largeur, taille, i, j, k = 0;
@@ -100,7 +100,7 @@ char* intToCharMatriceSansEnter(int** mat, Taille dim) {
 }
 
 /* Transforme une chaine de caracteres contenant en fait une matrice
- en un tableau d'entiers à deux dimensions */
+ en un tableau d'entiers ï¿½ deux dimensions */
 int** charToIntMatrice(char* matrice, Taille dim) {
 	int** mat;
 	int hauteur, largeur, i, j, k;
@@ -165,7 +165,7 @@ Souche* dispatchMatEnSouches(int** matrice, Param param, int nbSouches) {
 }
 
 /* Fonction permettant de retourner la hauteur et la largeur maximales
- parmi différentes souches stockées à l'aide d'un tableau de Souche */
+ parmi diffï¿½rentes souches stockï¿½es ï¿½ l'aide d'un tableau de Souche */
 int* maxHauteurLargeur(int nbSouches, Souche *souche) {
 	int i;
 	int largeur = souche[0].largeur;
@@ -183,7 +183,7 @@ int* maxHauteurLargeur(int nbSouches, Souche *souche) {
 	return hauteur_largeur;
 }
 
-/* Procédure permettant de copier une matrice mat1 dans une matrice mat2
+/* Procï¿½dure permettant de copier une matrice mat1 dans une matrice mat2
  de dimensions taille (hauteur et largeur) */
 void copieMatrice(int** mat1, int** mat2, Taille taille) {
 	int hauteur, largeur, i, j;
@@ -196,7 +196,7 @@ void copieMatrice(int** mat1, int** mat2, Taille taille) {
 	}
 }
 
-/* Procédure permettant de copier un certain nombre de souches cellulaires
+/* Procï¿½dure permettant de copier un certain nombre de souches cellulaires
  nbSouches, souche1, dans souche2 */
 void copieSouche(int nbSouches, Souche *souche1, Souche *souche2) {
 	int* hauteur_largeur;
@@ -226,7 +226,7 @@ void copieSouche(int nbSouches, Souche *souche1, Souche *souche2) {
 	}
 }
 
-/* Procédure permettant d'afficher à la sortie standard une matrice de dimensions
+/* Procï¿½dure permettant d'afficher ï¿½ la sortie standard une matrice de dimensions
  taille (hauteur et largeur) */
 void afficheMatrice(int** mat, Taille taille) {
 	int hauteur, largeur, i, j;
@@ -246,7 +246,7 @@ void afficheMatrice(int** mat, Taille taille) {
 }
 
 /* Fonction permettant de tester si une cellule (une case de la matrice)
- est vide (c'est-à-dire vaut 0) ou non */
+ est vide (c'est-ï¿½-dire vaut 0) ou non */
 int estCelluleVide(int cellule) {
 	if (cellule == 0)
 		return TRUE;
@@ -255,7 +255,7 @@ int estCelluleVide(int cellule) {
 }
 
 /* Fonction permettant de compter le nombre de cellules voisines
- de type typeCell à une certaine cellule donnée */
+ de type typeCell ï¿½ une certaine cellule donnï¿½e */
 int* comptage(int* compteur, int cellule, int typeCell) {
 	int test;
 	test = estCelluleVide(cellule);
@@ -269,10 +269,10 @@ int* comptage(int* compteur, int cellule, int typeCell) {
 	return compteur;
 }
 
-/* Fonction permettant de compter le nombre de cellules voisines à une
- cellule se situant dans les différentes matrices d'un certain nombre nbSouches
- de souches données à l'intersection de la ligne i et la colonne j.
- Ce calcul se fait dans un espace torique, c'est-à-dire que le haut et le bas, et,
+/* Fonction permettant de compter le nombre de cellules voisines ï¿½ une
+ cellule se situant dans les diffï¿½rentes matrices d'un certain nombre nbSouches
+ de souches donnï¿½es ï¿½ l'intersection de la ligne i et la colonne j.
+ Ce calcul se fait dans un espace torique, c'est-ï¿½-dire que le haut et le bas, et,
  la gauche et la droite se rejoignent */
 int* nbCellVoisinesEspaceTorique(int i, int j, int nbSouches, Souche *souche) {
 
@@ -391,10 +391,10 @@ int* nbCellVoisinesEspaceTorique(int i, int j, int nbSouches, Souche *souche) {
 	return compteur;
 }
 
-/* Fonction permettant de compter le nombre de cellules voisines à une
- cellule se situant dans les différentes matrices d'un certain nombre nbSouches
- de souches données à l'intersection de la ligne i et la colonne j.
- Ce calcul se fait dans un espace cylindrique, c'est-à-dire que le haut et le bas
+/* Fonction permettant de compter le nombre de cellules voisines ï¿½ une
+ cellule se situant dans les diffï¿½rentes matrices d'un certain nombre nbSouches
+ de souches donnï¿½es ï¿½ l'intersection de la ligne i et la colonne j.
+ Ce calcul se fait dans un espace cylindrique, c'est-ï¿½-dire que le haut et le bas
  ne se rejoignent pas, mais que la gauche et la droite se rejoignent */
 int* nbCellVoisinesEspaceCylindrique(int i, int j, int nbSouches,
 		Souche *souche) {
@@ -538,10 +538,10 @@ int* nbCellVoisinesEspaceCylindrique(int i, int j, int nbSouches,
 	return compteur;
 }
 
-/* Fonction permettant de compter le nombre de cellules voisines à une
- cellule se situant dans les différentes matrices d'un certain nombre nbSouches
- de souches données à l'intersection de la ligne i et la colonne j.
- Ce calcul se fait dans un espace carré, c'est-à-dire que le haut et le bas, et, 
+/* Fonction permettant de compter le nombre de cellules voisines ï¿½ une
+ cellule se situant dans les diffï¿½rentes matrices d'un certain nombre nbSouches
+ de souches donnï¿½es ï¿½ l'intersection de la ligne i et la colonne j.
+ Ce calcul se fait dans un espace carrï¿½, c'est-ï¿½-dire que le haut et le bas, et, 
  la gauche et la droite ne se rejoignent pas */
 int* nbCellVoisinesEspaceCarre(int i, int j, int nbSouches, Souche *souche) {
 
@@ -719,7 +719,7 @@ int* nbCellVoisinesEspaceCarre(int i, int j, int nbSouches, Souche *souche) {
 	return compteur;
 }
 
-/* Fonction permettant de décider la mort ou non d'une cellule se situant à
+/* Fonction permettant de dï¿½cider la mort ou non d'une cellule se situant ï¿½
  la ligne i et la colonne j d'une matrice par rapport aux calculs du nombre
  de cellules voisines dans un certain espace */
 int celluleDoitMourir(int i, int j, int nbSouches, Souche *souche) {
@@ -749,7 +749,7 @@ int celluleDoitMourir(int i, int j, int nbSouches, Souche *souche) {
 	}
 }
 
-/* Fonction permettant de décider la naissance ou non d'une cellule se situant à
+/* Fonction permettant de dï¿½cider la naissance ou non d'une cellule se situant ï¿½
  la ligne i et la colonne j d'une matrice par rapport aux calculs du nombre
  de cellules voisines dans un certain espace */
 int celluleDoitNaitre(int i, int j, int nbSouches, Souche *souche) {
@@ -782,7 +782,7 @@ int celluleDoitNaitre(int i, int j, int nbSouches, Souche *souche) {
 }
 
 /* Fonction permettant de comparer deux matrice. Si elles sont identiques
- alors la fonction retourne vrai (elles sont dans un état stationnaire
+ alors la fonction retourne vrai (elles sont dans un ï¿½tat stationnaire
  sinon elle retourne faux */
 int etatStationnaire(int** mat1, int** mat2, Taille taille) {
 	int hauteur, largeur, i, j;
@@ -805,8 +805,8 @@ int etatStationnaire(int** mat1, int** mat2, Taille taille) {
 }
 
 /* Fonction permettant de regrouper les matrices d'un certain nombre de souches
- nbSouches dans une seule matrice. Si plusieurs cellules se situent à un même
- emplacement alors elles s'entretuent pour obtenir la place. Par conséquent
+ nbSouches dans une seule matrice. Si plusieurs cellules se situent ï¿½ un mï¿½me
+ emplacement alors elles s'entretuent pour obtenir la place. Par consï¿½quent
  la case correspondante reste vide */
 int** regroupementSouches(int nbSouches, Souche *souche) {
 	int* hauteur_largeur;
@@ -827,9 +827,9 @@ int** regroupementSouches(int nbSouches, Souche *souche) {
 		}
 	}
 
-	/* lors du regroupement des différentes souches, si plusieurs cellules
-	 sont placées à une même place, alors ces cellules s'entretuent pour obtenir la place
-	 par conséquent, la place reste vide
+	/* lors du regroupement des diffï¿½rentes souches, si plusieurs cellules
+	 sont placï¿½es ï¿½ une mï¿½me place, alors ces cellules s'entretuent pour obtenir la place
+	 par consï¿½quent, la place reste vide
 	 */
 	for (k = 0; k < nbSouches; k++) {
 		for (i = 0; i < hauteur; i++) {
@@ -843,7 +843,7 @@ int** regroupementSouches(int nbSouches, Souche *souche) {
 	return mat_return;
 }
 
-/* Fonction qui initialise une taille (hauteur et largeur) par défaut */
+/* Fonction qui initialise une taille (hauteur et largeur) par dï¿½faut */
 Taille tailleParDefaut() {
 	Taille taille;
 	taille.hauteur = 20;
@@ -851,25 +851,25 @@ Taille tailleParDefaut() {
 	return taille;
 }
 
-/* Procédure permettant d'initialiser les parametres aux valeurs par défaut */
+/* Procï¿½dure permettant d'initialiser les parametres aux valeurs par dï¿½faut */
 void initParamParDefaut() {
 	parametres.espace = ESPACE_PAR_DEFAUT;
 	parametres.taille = tailleParDefaut();
 	parametres.vitesse = VITESSE_PAR_DEFAUT;
 }
 
-/* Procédure permettant de modifier l'espace de développement des cellules */
+/* Procï¿½dure permettant de modifier l'espace de dï¿½veloppement des cellules */
 void setEspace(char espace) {
 	parametres.espace = espace;
 }
 
-/* Procédure permettant de modifier la vitesse de développement des cellules */
+/* Procï¿½dure permettant de modifier la vitesse de dï¿½veloppement des cellules */
 void setVitesse(int vitesse) {
 	parametres.vitesse = vitesse;
 }
 
-/* Procédure permettant de modifier la taille de l'espace de 
- développement des cellules */
+/* Procï¿½dure permettant de modifier la taille de l'espace de 
+ dï¿½veloppement des cellules */
 void setTaille(Taille taille) {
 	parametres.taille = taille;
 }
@@ -884,8 +884,8 @@ Souche initialisationSouche(Taille taille, int typeCell, int** mat) {
 	return souche;
 }
 
-/* Pocédure permettant de gérer le temps, la vitesse d'avancement, d'évolution
- de l'expérience */
+/* Pocï¿½dure permettant de gï¿½rer le temps, la vitesse d'avancement, d'ï¿½volution
+ de l'expï¿½rience */
 void tempsAvancement() {
 	int attente, i;
 	switch (parametres.vitesse) {
@@ -912,13 +912,13 @@ void tempsAvancement() {
 		;
 }
 
-/* Fonction générant un nombre aléatoire entre 1 et m */
+/* Fonction gï¿½nï¿½rant un nombre alï¿½atoire entre 1 et m */
 int generer(int m) {
 	return ((rand() % (m - 1)) + 1);
 }
 
-/* Fonction permettant de générer une souche aléatoire de taille
- (hauteur et largeur) et type de cellules donnés */
+/* Fonction permettant de gï¿½nï¿½rer une souche alï¿½atoire de taille
+ (hauteur et largeur) et type de cellules donnï¿½s */
 Souche generationUneSouche(Taille taille, int typeCell) {
 	Souche souche;
 	int** mat;
@@ -947,8 +947,8 @@ Souche generationUneSouche(Taille taille, int typeCell) {
 	return souche;
 }
 
-/* Fonction permettant de générer aléatoirement un certain nombre de
- souches nbSouches et de taille (hauteur et largeur) données */
+/* Fonction permettant de gï¿½nï¿½rer alï¿½atoirement un certain nombre de
+ souches nbSouches et de taille (hauteur et largeur) donnï¿½es */
 Souche* generationPlusieursSouches(int nbSouches, Taille taille) {
 	Souche* souche;
 	int k, hauteur, largeur;
@@ -961,7 +961,7 @@ Souche* generationPlusieursSouches(int nbSouches, Taille taille) {
 	return souche;
 }
 
-/* Fonction qui teste si un fichier dont le nom est donné
+/* Fonction qui teste si un fichier dont le nom est donnï¿½
  en argument existe. Retourne TRUE (1) s'il existe et
  FALSE (0) sinon */
 int existeFichier(char* nomFichier) {
@@ -979,19 +979,19 @@ int existeFichier(char* nomFichier) {
 	return test;
 }
 
-/* Procédure permettant de sauvegarder une expérience
+/* Procï¿½dure permettant de sauvegarder une expï¿½rience
  en cours dans un fichier */
 void sauvegarde(int nbSouches, int** mat, char* nomFichier) {
 	FILE *fichier;
 	char* matrice;
 
-	/* Test de l'existence de fichier supposé fait en amont */
+	/* Test de l'existence de fichier supposï¿½ fait en amont */
 	/* Le fichier n'existe pas sous ce nom.
 	 Donc la sauvegarde peut se faire.
-	 Le mode "w" permet d'ouvrir un fichier en mode écriture
-	 si le fichier n'existe pas, il est créé
-	 sinon la longueur du fichier est ramenée à 0.
-	 Le pointeur de flux est placé au début du fichier. */
+	 Le mode "w" permet d'ouvrir un fichier en mode ï¿½criture
+	 si le fichier n'existe pas, il est crï¿½ï¿½
+	 sinon la longueur du fichier est ramenï¿½e ï¿½ 0.
+	 Le pointeur de flux est placï¿½ au dï¿½but du fichier. */
 	fichier = fopen(nomFichier, "w");
 	matrice = intToCharMatriceSansEnter(mat, parametres.taille);
 	fprintf(fichier, "Nombre de souches: %d\n", nbSouches);
@@ -1004,7 +1004,7 @@ void sauvegarde(int nbSouches, int** mat, char* nomFichier) {
 
 }
 
-/* Fonction permettant de charger une expérience préalablement sauvegardée */
+/* Fonction permettant de charger une expï¿½rience prï¿½alablement sauvegardï¿½e */
 Souche* chargement(int* nbSouches, Param* param, char* nomFichier) {
 	FILE *fichier;
 	int** mat;
@@ -1015,7 +1015,7 @@ Souche* chargement(int* nbSouches, Param* param, char* nomFichier) {
 	int i;
 	Souche* souche;
 
-	/* Test de l'existence de fichier supposé fait en amont */
+	/* Test de l'existence de fichier supposï¿½ fait en amont */
 	/* Ouverture du fichier en mode lecture */
 	fichier = fopen(nomFichier, "r");
 	fscanf(fichier, "Nombre de souches: %d\n", nbSouches);
@@ -1037,9 +1037,9 @@ Souche* chargement(int* nbSouches, Param* param, char* nomFichier) {
 	return (souche);
 }
 
-/* Procédure permettant de libérer la place en mémoire allouée 
- au préalable pour les matrices et souches qui ont été nécessaire
- lors du développement des cellules */
+/* Procï¿½dure permettant de libï¿½rer la place en mï¿½moire allouï¿½e 
+ au prï¿½alable pour les matrices et souches qui ont ï¿½tï¿½ nï¿½cessaire
+ lors du dï¿½veloppement des cellules */
 void liberationAllocation() {
 	free(matriceG);
 	free(matriceTempG);
@@ -1047,9 +1047,9 @@ void liberationAllocation() {
 	free(soucheTempG);
 }
 
-/* Procédure correspondant à l'algorithme du jeu de la vie,
- à savoir l'évolution des cellules jusqu'à un état stationnaire
- ou un arrêt de la part de l'observateur */
+/* Procï¿½dure correspondant ï¿½ l'algorithme du jeu de la vie,
+ ï¿½ savoir l'ï¿½volution des cellules jusqu'ï¿½ un ï¿½tat stationnaire
+ ou un arrï¿½t de la part de l'observateur */
 void algorithme(void) {
 	int valeur, etat, i, j;
 	Taille taille = parametres.taille;

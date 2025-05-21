@@ -5,7 +5,7 @@
  *					*
  ********************/
 
-/* Inclusion des bibliothèques */
+/* Inclusion des bibliothï¿½ques */
 #include"biblio.h"
 #include"constantes.h"
 #include"types.h"
@@ -33,7 +33,7 @@ int PagePresentation() {
 	return (choix);
 }
 
-/* Procédure d'affichage de fin de jeu */
+/* Procï¿½dure d'affichage de fin de jeu */
 void AffichageFinJeu() {
 	printf(
 			"\n\n\n\n\n\t\t* * * * * * * * * * * * * * * * * * * * * * * * * *\n");
@@ -46,7 +46,7 @@ void AffichageFinJeu() {
 	printf("\t\t* * * * * * * * * * * * * * * * * * * * * * * * * *\n\n");
 }
 
-/* Procédure permettant de lancer le choix demandé par l'utilisateur */
+/* Procï¿½dure permettant de lancer le choix demandï¿½ par l'utilisateur */
 void lancementDuChoix(int choix, int compteur) {
 	int test, choixBis;
 	char temp;
@@ -101,8 +101,8 @@ void lancementDuChoix(int choix, int compteur) {
 	}
 }
 
-/* Procédure permettant d'effectuer la selection des parametres
- pour debuter l'expérience */
+/* Procï¿½dure permettant d'effectuer la selection des parametres
+ pour debuter l'expï¿½rience */
 void selectionParametres() {
 	char choixEspace;
 	int choixVitesse, choix;
@@ -233,7 +233,7 @@ Taille selectionTaille() {
 	return taille;
 }
 
-/* Procédure pour la selection de l'initialisation des souches */
+/* Procï¿½dure pour la selection de l'initialisation des souches */
 void selectionSouches(int compteur) {
 	int i, hauteur, largeur, emplacement;
 
@@ -331,7 +331,7 @@ int** initialisationMatrice(Taille taille, int typeCell) {
 	return mat;
 }
 
-/* Procédure permettant de lancer l'experience */
+/* Procï¿½dure permettant de lancer l'experience */
 void lancementDuJeu() {
 	int i;
 	char rep, c;
@@ -398,7 +398,7 @@ char boucle() {
 	return rep;
 }
 
-/* Procédure permettant de sauvegarder une experience */
+/* Procï¿½dure permettant de sauvegarder une experience */
 void choixSauvegarde(char c) {
 	char* chaine;
 	int choix, compteur = 0, test;
@@ -452,7 +452,7 @@ void choixSauvegarde(char c) {
 	}
 }
 
-/* Procédure permettant de charger une experience préexistante */
+/* Procï¿½dure permettant de charger une experience prï¿½existante */
 void choixChargement() {
 	char* chaine;
 	int test;
@@ -520,7 +520,7 @@ void choixPause() {
 	printf("Retour a l'experience\n");
 }
 
-/* Procédure permettant de choisir le lancement de l'experience.
+/* Procï¿½dure permettant de choisir le lancement de l'experience.
  A savoir un chargement ou une nouvelle experience */
 void choixExperience() {
 	int choix, compteur = 0;
@@ -544,14 +544,14 @@ void choixExperience() {
 	}
 }
 
-/* Procédure permettant de lancer le mode_console */
+/* Procï¿½dure permettant de lancer le mode_console */
 void mode_console() {
 	int choix, compteur = 0;
 	choix = PagePresentation();
 	lancementDuChoix(choix, compteur);
 }
 
-/* Procédure permettant de faire defiler le texte contenu
+/* Procï¿½dure permettant de faire defiler le texte contenu
  dans la fenetre en tapant ENTREE */
 void printEntree() {
 	int i;
@@ -562,13 +562,13 @@ void printEntree() {
 	(void) litPremierCarac();
 }
 
-/* Procédure permettant d'ouvrir en lecture et d'afficher
+/* Procï¿½dure permettant d'ouvrir en lecture et d'afficher
  le contenu d'un fichier */
 void ouvrirLecture(char* nomFichier) {
 	FILE* fichier;
 	char c;
 
-	/* Test de l'existence de fichier supposé fait en amont */
+	/* Test de l'existence de fichier supposï¿½ fait en amont */
 	/* Ouverture en mode lecture */
 	fichier = fopen(nomFichier, "r");
 	do {
@@ -580,12 +580,12 @@ void ouvrirLecture(char* nomFichier) {
 				printEntree();
 		}
 	} while (c != '*');
-	/* Sous Linux, demander l'affichage de tous les caractères contenus dans
-	 un fichier tant que le caractère lu soit différent de "EOF"
-	 "while(c!=EOF)" engendre l'apparition d'un caractère spécial à la fin
-	 de l'affichage à la sortie standrad qui doit représenter le retour chariot.
-	 Ainsi, dans cette procédure nous afficherons tous les caratères
-	 jusqu'à ce qu'il soit rencontré le caractère '*'. */
+	/* Sous Linux, demander l'affichage de tous les caractï¿½res contenus dans
+	 un fichier tant que le caractï¿½re lu soit diffï¿½rent de "EOF"
+	 "while(c!=EOF)" engendre l'apparition d'un caractï¿½re spï¿½cial ï¿½ la fin
+	 de l'affichage ï¿½ la sortie standrad qui doit reprï¿½senter le retour chariot.
+	 Ainsi, dans cette procï¿½dure nous afficherons tous les caratï¿½res
+	 jusqu'ï¿½ ce qu'il soit rencontrï¿½ le caractï¿½re '*'. */
 	fclose(fichier);
 }
 
