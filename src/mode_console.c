@@ -5,17 +5,18 @@
  *					*
  ********************/
 
-/* Inclusion des bibliothèques */
-#include"biblio.h"
-#include"constantes.h"
-#include"types.h"
-#include"var_globales.h"
-#include"jeu_de_la_vie.h"
-#include"mode_console.h"
+/* Inclusion des bibliothÃ¨ques */
+#include "biblio.h"
+#include "constantes.h"
+#include "types.h"
+#include "var_globales.h"
+#include "jeu_de_la_vie.h"
+#include "mode_console.h"
 
 /* Fonction permettant d'afficher la page de garde et le sommaire
  et de demander de faire un choix */
-int PagePresentation() {
+int PagePresentation()
+{
 	int choix;
 	printf("\n\t\t\t* * * * * * * * * * * *\n");
 	printf("\t\t\t*                     *\n");
@@ -33,10 +34,11 @@ int PagePresentation() {
 	return (choix);
 }
 
-/* Procédure d'affichage de fin de jeu */
-void AffichageFinJeu() {
+/* ProcÃ©dure d'affichage de fin de jeu */
+void AffichageFinJeu()
+{
 	printf(
-			"\n\n\n\n\n\t\t* * * * * * * * * * * * * * * * * * * * * * * * * *\n");
+		"\n\n\n\n\n\t\t* * * * * * * * * * * * * * * * * * * * * * * * * *\n");
 	printf("\t\t*                                                 *\n");
 	printf("\t\t*           Gunes Aysel et RAMOS Pierre           *\n");
 	printf("\t\t*  vous remercient d'avoir utilise ce programme.  *\n");
@@ -46,29 +48,35 @@ void AffichageFinJeu() {
 	printf("\t\t* * * * * * * * * * * * * * * * * * * * * * * * * *\n\n");
 }
 
-/* Procédure permettant de lancer le choix demandé par l'utilisateur */
-void lancementDuChoix(int choix, int compteur) {
+/* ProcÃ©dure permettant de lancer le choix demandÃ© par l'utilisateur */
+void lancementDuChoix(int choix, int compteur)
+{
 	int test, choixBis;
 	char temp;
 
-	switch (choix) {
+	switch (choix)
+	{
 	// Presentation
 	case 1:
 		test = existeFichier("presentation");
-		if (test == TRUE) {
+		if (test == TRUE)
+		{
 			ouvrirLecture("presentation");
 			printf(
-					"\n\n._._._._._._._._._._._._._._._._._._._._._._._._._._._._.\n\n");
+				"\n\n._._._._._._._._._._._._._._._._._._._._._._._._._._._._.\n\n");
 			printf(
-					"Veuillez taper sur \"ENTREE\" pour retourner au sommaire.\n");
-			do {
+				"Veuillez taper sur \"ENTREE\" pour retourner au sommaire.\n");
+			do
+			{
 				scanf("%c", &temp);
 			} while (temp != '\n');
 			printf("Retour au sommaire.\n");
 			printf(
-					"._._._._._._._._._._._._._._._._._._._._._._._._._._._._.\n\n");
+				"._._._._._._._._._._._._._._._._._._._._._._._._._._._._.\n\n");
 			mode_console();
-		} else {
+		}
+		else
+		{
 			printf("Erreur d'ouverture du fichier\n");
 			printf("\nVeuillez formuler un autre choix\n");
 			choixBis = litEntier();
@@ -92,18 +100,20 @@ void lancementDuChoix(int choix, int compteur) {
 		compteur++;
 		if (compteur < 3)
 			lancementDuChoix(choixBis, compteur);
-		else {
+		else
+		{
 			printf(
-					"Nous sommes desoles, vos demandes ne sont toujours pas correctes.\n");
+				"Nous sommes desoles, vos demandes ne sont toujours pas correctes.\n");
 			AffichageFinJeu();
 			exit(0);
 		}
 	}
 }
 
-/* Procédure permettant d'effectuer la selection des parametres
- pour debuter l'expérience */
-void selectionParametres() {
+/* ProcÃ©dure permettant d'effectuer la selection des parametres
+ pour debuter l'expÃ©rience */
+void selectionParametres()
+{
 	char choixEspace;
 	int choixVitesse, choix;
 	Taille choixTaille;
@@ -113,7 +123,8 @@ void selectionParametres() {
 	choix = litEntier();
 	initParamParDefaut();
 
-	switch (choix) {
+	switch (choix)
+	{
 	// Personnelle
 	case 1:
 		choixEspace = selectionEspace();
@@ -130,12 +141,13 @@ void selectionParametres() {
 
 	default:
 		printf(
-				"Votre selection n'est correcte.\nNous considerons donc les parametres par defaut.\n");
+			"Votre selection n'est correcte.\nNous considerons donc les parametres par defaut.\n");
 	}
 }
 
 /* Fonction retournant le type d'espace choisi */
-char selectionEspace() {
+char selectionEspace()
+{
 	char c;
 	int choix;
 	printf("\t- - Type d'espace:\n\t\t");
@@ -144,7 +156,8 @@ char selectionEspace() {
 	printf("> 3- Espace Carre en 2D\n");
 	printf("choix: ");
 	choix = litEntier();
-	switch (choix) {
+	switch (choix)
+	{
 	// Esapce Torique
 	case 1:
 		c = 'T';
@@ -168,14 +181,15 @@ char selectionEspace() {
 
 	default:
 		printf(
-				"Votre selection n'est pas correcte.\nVeuillez reprendre ou taper 0 pour quitter.\n");
+			"Votre selection n'est pas correcte.\nVeuillez reprendre ou taper 0 pour quitter.\n");
 		c = selectionEspace();
 	}
 	return c;
 }
 
 /* Fonction retournant la vitesse de deroulement de l'experience */
-int selectionVitesse() {
+int selectionVitesse()
+{
 	int choix;
 	printf("\t- Vitesse d'evolution:\n\t\t");
 	printf("> 1- Lente\n\t\t");
@@ -184,47 +198,55 @@ int selectionVitesse() {
 	printf("> 4- Personnelle\n");
 	printf("choix: ");
 	choix = litEntier();
-	if (choix == 0) {
+	if (choix == 0)
+	{
 		printf("Votre choix a ete de quitter.\n");
 		AffichageFinJeu();
 		exit(0);
 	}
-	if (choix != 1 && choix != 2 && choix != 3 && choix != 4) {
+	if (choix != 1 && choix != 2 && choix != 3 && choix != 4)
+	{
 		printf(
-				"Votre selection n'est pas correcte.\nVeuillez reprendre ou taper 0 pour quitter.\n");
+			"Votre selection n'est pas correcte.\nVeuillez reprendre ou taper 0 pour quitter.\n");
 		choix = selectionVitesse();
 	}
 	return choix;
 }
 
 /* Fonction retournant la Taille de l'espace de deroulement de l'experience */
-Taille selectionTaille() {
+Taille selectionTaille()
+{
 	int choixHauteur, choixLargeur;
 	Taille taille;
 	printf("\t- Taille de l'espace:\n\t");
 	printf(
-			"   Les valeurs de la hauteur et de la largeur doivent\n\t   etre comprises entre 10 et 30.\n");
+		"   Les valeurs de la hauteur et de la largeur doivent\n\t   etre comprises entre 10 et 30.\n");
 	printf("\t\t> Hauteur: ");
 	choixHauteur = litEntier();
 	printf("\t\t> Largeur: ");
 	choixLargeur = litEntier();
-	if (choixHauteur == 0 && choixLargeur == 0) {
+	if (choixHauteur == 0 && choixLargeur == 0)
+	{
 		printf("Votre choix a ete de quitter.\n");
 		AffichageFinJeu();
 		exit(0);
-	} else {
-		if (choixHauteur < 10 || choixHauteur > 30) {
+	}
+	else
+	{
+		if (choixHauteur < 10 || choixHauteur > 30)
+		{
 			printf(
-					"Votre selection pour la taille de la HAUTEUR n'est pas correcte.\n");
+				"Votre selection pour la taille de la HAUTEUR n'est pas correcte.\n");
 			printf(
-					"Veuillez reprendre ou taper 0 pour la hauteur et 0 pour la largeur pour quitter.\n");
+				"Veuillez reprendre ou taper 0 pour la hauteur et 0 pour la largeur pour quitter.\n");
 			taille = selectionTaille();
 		}
-		if (choixLargeur < 10 || choixLargeur > 30) {
+		if (choixLargeur < 10 || choixLargeur > 30)
+		{
 			printf(
-					"Votre selection pour la taille de la LARGEUR n'est pas correcte.\n");
+				"Votre selection pour la taille de la LARGEUR n'est pas correcte.\n");
 			printf(
-					"Veuillez reprendre ou taper 0 pour la hauteur et 0 pour la largeur pour quitter.\n");
+				"Veuillez reprendre ou taper 0 pour la hauteur et 0 pour la largeur pour quitter.\n");
 			taille = selectionTaille();
 		}
 	}
@@ -233,34 +255,38 @@ Taille selectionTaille() {
 	return taille;
 }
 
-/* Procédure pour la selection de l'initialisation des souches */
-void selectionSouches(int compteur) {
+/* ProcÃ©dure pour la selection de l'initialisation des souches */
+void selectionSouches(int compteur)
+{
 	int i, hauteur, largeur, emplacement;
 
 	printf("\n\n\n>> SELECTION DES SOUCHES <<\n");
 	printf("Nombre de souches souhaite pour l'experience: ");
 	nbSouchesG = litEntier();
 
-	while ((nbSouchesG < 1 || nbSouchesG > 9) && compteur < 3) {
+	while ((nbSouchesG < 1 || nbSouchesG > 9) && compteur < 3)
+	{
 		printf("Votre selection est incorrecte.\n");
 		printf("Veuillez entrer un nombre entre 1 et 9.\n");
 		printf("Nombre de souches: ");
 		nbSouchesG = litEntier();
 		compteur++;
 	}
-	if (compteur == 3) {
+	if (compteur == 3)
+	{
 		printf(
-				"Nous sommes desoles, vos selections ne sont toujours pas correctes.\n");
+			"Nous sommes desoles, vos selections ne sont toujours pas correctes.\n");
 		AffichageFinJeu();
 		exit(0);
 	}
 
 	printf(
-			"\nEn ce qui concerne l'emplacement des cellules de la (ou des) souche(s),\nsouhaitez-vous:\n\t");
+		"\nEn ce qui concerne l'emplacement des cellules de la (ou des) souche(s),\nsouhaitez-vous:\n\t");
 	printf("1- un emplacement aleatoire ?\n\t");
 	printf("2- un emplacement personnel ?\nchoix: ");
 	emplacement = litEntier();
-	switch (emplacement) {
+	switch (emplacement)
+	{
 	// aleatoire
 	case 1:
 		soucheG = generationPlusieursSouches(nbSouchesG, parametres.taille);
@@ -270,8 +296,9 @@ void selectionSouches(int compteur) {
 	case 2:
 		hauteur = (parametres.taille).hauteur;
 		largeur = (parametres.taille).largeur;
-		soucheG = (Souche*) malloc(nbSouchesG * sizeof(Souche));
-		for (i = 0; i < nbSouchesG; i++) {
+		soucheG = (Souche *)malloc(nbSouchesG * sizeof(Souche));
+		for (i = 0; i < nbSouchesG; i++)
+		{
 			soucheG[i].hauteur = hauteur;
 			soucheG[i].largeur = largeur;
 			soucheG[i].typeCell = i + 1;
@@ -288,38 +315,45 @@ void selectionSouches(int compteur) {
 }
 
 /* Fonction permettant d'initialiser une matrice manuellement */
-int** initialisationMatrice(Taille taille, int typeCell) {
-	int** mat;
+int **initialisationMatrice(Taille taille, int typeCell)
+{
+	int **mat;
 	int i, j, hauteur, largeur;
 	char caractere;
 	hauteur = taille.hauteur;
 	largeur = taille.largeur;
 
-	mat = (int**) malloc(hauteur * sizeof(int*));
-	for (i = 0; i < hauteur; i++) {
-		mat[i] = (int*) malloc(largeur * sizeof(int));
+	mat = (int **)malloc(hauteur * sizeof(int *));
+	for (i = 0; i < hauteur; i++)
+	{
+		mat[i] = (int *)malloc(largeur * sizeof(int));
 	}
-	for (i = 0; i < hauteur; i++) {
-		for (j = 0; j < largeur; j++) {
+	for (i = 0; i < hauteur; i++)
+	{
+		for (j = 0; j < largeur; j++)
+		{
 			mat[i][j] = 0;
 		}
 	}
 	printf(
-			"Veuillez entrer les coordonnees de l'emplacement de chacune\nde vos cellules de la maniere suivante: \"x,y\".\n");
+		"Veuillez entrer les coordonnees de l'emplacement de chacune\nde vos cellules de la maniere suivante: \"x,y\".\n");
 	printf(
-			"L'abscisse x doit etre comprise entre 1 et la largeur de l'espace.\n");
+		"L'abscisse x doit etre comprise entre 1 et la largeur de l'espace.\n");
 	printf(
-			"L'ordonnee y doit etre comprise entre 1 et la hauteur de l'espace.\n\n");
+		"L'ordonnee y doit etre comprise entre 1 et la hauteur de l'espace.\n\n");
 	printf(
-			"\tVeuillez taper sur ENTREE pour commencer.\n\tUne fois terminee, veuillez taper \"f\" pour fin.\n\n");
+		"\tVeuillez taper sur ENTREE pour commencer.\n\tUne fois terminee, veuillez taper \"f\" pour fin.\n\n");
 	caractere = litPremierCarac();
-	if (caractere != 'f' && caractere != 'F') {
-		do {
+	if (caractere != 'f' && caractere != 'F')
+	{
+		do
+		{
 			printf("> ");
 			scanf("%d,%d", &j, &i);
 			if (i > 0 && i <= hauteur && j > 0 && j <= largeur)
 				mat[i - 1][j - 1] = typeCell;
-			else {
+			else
+			{
 				if (caractere != 'f' && caractere != 'f')
 					printf("Erreur de syntaxe.\nVeuillez reprendre.\n\n");
 			}
@@ -331,21 +365,23 @@ int** initialisationMatrice(Taille taille, int typeCell) {
 	return mat;
 }
 
-/* Procédure permettant de lancer l'experience */
-void lancementDuJeu() {
+/* ProcÃ©dure permettant de lancer l'experience */
+void lancementDuJeu()
+{
 	int i;
 	char rep, c;
 
 	// initialisation de la germe
-	srand((unsigned) time(NULL));
+	srand((unsigned)time(NULL));
 
 	choixExperience();
 	matriceG = regroupementSouches(nbSouchesG, soucheG);
-	soucheTempG = (Souche*) malloc(nbSouchesG * sizeof(Souche));
-	matriceTempG = (int**) malloc(((parametres.taille).hauteur) * sizeof(int*));
-	for (i = 0; i < ((parametres.taille).hauteur); i++) {
-		matriceTempG[i] = (int*) malloc(
-				((parametres.taille).largeur) * sizeof(int));
+	soucheTempG = (Souche *)malloc(nbSouchesG * sizeof(Souche));
+	matriceTempG = (int **)malloc(((parametres.taille).hauteur) * sizeof(int *));
+	for (i = 0; i < ((parametres.taille).hauteur); i++)
+	{
+		matriceTempG[i] = (int *)malloc(
+			((parametres.taille).largeur) * sizeof(int));
 	}
 
 	printf("\n--------------------------------------------------------\n\n\n");
@@ -353,108 +389,135 @@ void lancementDuJeu() {
 	printf("\t\t DEBUT  DE  L' EXPERIENCE\n");
 	printf("\t\t--------------------------\n");
 
-	while (parametres.vitesse == 4) {
+	while (parametres.vitesse == 4)
+	{
 		rep = boucle();
-		if (rep == 'Q' || rep == 'q') {
+		if (rep == 'Q' || rep == 'q')
+		{
 			printf(
-					"\nVous avez demande a arreter le deoulement de l'experience.\n");
+				"\nVous avez demande a arreter le deoulement de l'experience.\n");
 			printf("Voulez-vous sauvegarder l'experience actuelle (o/n)?\n");
 			c = litPremierCarac();
 			choixSauvegarde(c);
 			AffichageFinJeu();
 			exit(0);
 		}
-		if (rep == 'P' || rep == 'p') {
+		if (rep == 'P' || rep == 'p')
+		{
 			choixPause();
 		}
 	}
 
-	if (parametres.vitesse != 4) {
+	if (parametres.vitesse != 4)
+	{
 		rep = boucle();
 	}
 }
 
 /* Fonction qui reprend la boucle de l'algorithme */
-char boucle() {
+char boucle()
+{
 	char rep;
 	int choix, compteur = 0;
 
-	do {
+	do
+	{
 		printf("\n\n");
 		afficheMatrice(matriceG, parametres.taille);
 		algorithme();
-		if (stationnaire == 0) {
+		if (stationnaire == 0)
+		{
 			printf("\nEtat Stationnaire\n\n");
 			printf("Retour au sommaire\n\n");
 			choix = PagePresentation();
 			lancementDuChoix(choix, compteur);
 		}
-		if (parametres.vitesse == 4) {
+		if (parametres.vitesse == 4)
+		{
 			rep = litPremierCarac();
-		} else {
+		}
+		else
+		{
 			tempsAvancement();
 		}
 	} while (1 && rep != 'Q' && rep != 'q' && rep != 'P' && rep != 'p');
 	return rep;
 }
 
-/* Procédure permettant de sauvegarder une experience */
-void choixSauvegarde(char c) {
-	char* chaine;
+/* ProcÃ©dure permettant de sauvegarder une experience */
+void choixSauvegarde(char c)
+{
+	char *chaine;
 	int choix, compteur = 0, test;
 
-	if (c == 'o' || c == 'O') {
+	if (c == 'o' || c == 'O')
+	{
 		printf("\n\n\tSAUVEGARDE DE L'EXPERIENCE\n");
 		printf(
-				"Veuillez entrer le nom sous lequel vous souhaitez\n\teffectuer la sauvegarde:\n>> ");
+			"Veuillez entrer le nom sous lequel vous souhaitez\n\teffectuer la sauvegarde:\n>> ");
 		chaine = litCaractere();
 		chaine[strlen(chaine) - 1] = 0;
 		test = existeFichier(chaine);
-		if (test == FALSE) {
+		if (test == FALSE)
+		{
 			sauvegarde(nbSouchesG, matriceG, chaine);
-		} else {
+		}
+		else
+		{
 			printf("Le fichier specifie existe deja. Voulez-vous:\n");
 			printf("> 1- L'ecraser\n\t");
 			printf("> 2- Le renommer\n\t");
 			printf("> 3- Quitter?\n choix: ");
 			choix = litEntier();
-			if (choix == 1) {
+			if (choix == 1)
+			{
 				sauvegarde(nbSouchesG, matriceG, chaine);
 			}
-			if (choix == 2) {
+			if (choix == 2)
+			{
 				printf(
-						"Veuillez entrer le nom sous lequel vous souhaitez\n\teffectuer la sauvegarde:\n>> ");
+					"Veuillez entrer le nom sous lequel vous souhaitez\n\teffectuer la sauvegarde:\n>> ");
 				chaine = litCaractere();
 				chaine[strlen(chaine) - 1] = 0;
 				test = existeFichier(chaine);
-				if (test == FALSE) {
+				if (test == FALSE)
+				{
 					sauvegarde(nbSouchesG, matriceG, chaine);
-				} else {
+				}
+				else
+				{
 					printf("Ce fichier specifie existe aussi.\n");
 				}
 			}
-			if (choix == 3) {
+			if (choix == 3)
+			{
 				AffichageFinJeu();
 				exit(0);
 			}
 		}
-	} else {
+	}
+	else
+	{
 		printf("Vous n'avez pas acceptez la sauvegarde.\n");
 	}
 	printf("\nVoulez-vous retourner au sommaire(1) ou quitter(2)?\nchoix: ");
 	choix = litEntier();
-	if (choix == 1) {
+	if (choix == 1)
+	{
 		choix = PagePresentation();
 		lancementDuChoix(choix, compteur);
-	} else {
+	}
+	else
+	{
 		AffichageFinJeu();
 		exit(0);
 	}
 }
 
-/* Procédure permettant de charger une experience préexistante */
-void choixChargement() {
-	char* chaine;
+/* ProcÃ©dure permettant de charger une experience prÃ©existante */
+void choixChargement()
+{
+	char *chaine;
 	int test;
 
 	printf("\n\n\tCHARGEMENT D'UNE EXPERIENCE.\n");
@@ -462,9 +525,12 @@ void choixChargement() {
 	chaine = litCaractere();
 	chaine[strlen(chaine) - 1] = 0;
 	test = existeFichier(chaine);
-	if (test == TRUE) {
+	if (test == TRUE)
+	{
 		soucheG = chargement(&nbSouchesG, &parametres, chaine);
-	} else {
+	}
+	else
+	{
 		printf("Chargement impossible. Le fichier n'existe pas.\n");
 		printf("Retour au sommaire\n");
 		mode_console();
@@ -472,7 +538,8 @@ void choixChargement() {
 }
 
 /* Procedure permettant de proposer les options du cas "pause" */
-void choixPause() {
+void choixPause()
+{
 	int choix, choixVitesse;
 	char choixEspace;
 
@@ -482,16 +549,19 @@ void choixPause() {
 	printf("> 2- Sauvegarder l'experience en cours\n\t");
 	printf("> 3- Quitter?\nchoix: ");
 	choix = litEntier();
-	if (choix == 2) {
+	if (choix == 2)
+	{
 		choixSauvegarde('o');
 	}
-	if (choix == 1) {
+	if (choix == 1)
+	{
 		printf("\n\n\n>> MODIFICATION DES PARAMETRES <<\n");
 		printf("Remarque: la taille de l'espace ne peut etre modifiee.\n");
 		printf("--------\n");
 		printf("Voulez vous une selection personnelle(1) ou automatique(2)?\n");
 		choix = litEntier();
-		switch (choix) {
+		switch (choix)
+		{
 		// Personnelle
 		case 1:
 			choixEspace = selectionEspace();
@@ -508,21 +578,23 @@ void choixPause() {
 
 		default:
 			printf(
-					"Votre selection n'est correcte.\nNous considerons donc les parametres par defaut.\n");
+				"Votre selection n'est correcte.\nNous considerons donc les parametres par defaut.\n");
 		}
 	}
-	if (choix != 1 && choix != 2 && choix != 3) {
+	if (choix != 1 && choix != 2 && choix != 3)
+	{
 		printf(
-				"Mauvaise selection.\nNous considerons que vous voulez quitter\n");
+			"Mauvaise selection.\nNous considerons que vous voulez quitter\n");
 		AffichageFinJeu();
 		exit(0);
 	}
 	printf("Retour a l'experience\n");
 }
 
-/* Procédure permettant de choisir le lancement de l'experience.
- A savoir un chargement ou une nouvelle experience */
-void choixExperience() {
+/* ProcÃ©dure permettant de choisir le lancement de l'experience.
+ Ã  savoir un chargement ou une nouvelle experience */
+void choixExperience()
+{
 	int choix, compteur = 0;
 
 	printf("\n\t\t>< LANCEMENT D'UNE EXPERIENCE ><\n");
@@ -531,61 +603,70 @@ void choixExperience() {
 	printf("> 1- Une experience preexistante\n\t");
 	printf("> 2- Une nouvelle experience?\nchoix: ");
 	choix = litEntier();
-	if (choix == 1) {
+	if (choix == 1)
+	{
 		choixChargement();
-	} else {
-		if (choix != 2) {
+	}
+	else
+	{
+		if (choix != 2)
+		{
 			printf("Votre choix est incorrect.\n");
 			printf(
-					"Nous coniderons donc le choix d'une nouvelle experience.\n");
+				"Nous coniderons donc le choix d'une nouvelle experience.\n");
 		}
 		selectionParametres();
 		selectionSouches(compteur);
 	}
 }
 
-/* Procédure permettant de lancer le mode_console */
-void mode_console() {
+/* ProcÃ©dure permettant de lancer le mode_console */
+void mode_console()
+{
 	int choix, compteur = 0;
 	choix = PagePresentation();
 	lancementDuChoix(choix, compteur);
 }
 
-/* Procédure permettant de faire defiler le texte contenu
+/* ProcÃ©dure permettant de faire defiler le texte contenu
  dans la fenetre en tapant ENTREE */
-void printEntree() {
+void printEntree()
+{
 	int i;
-	for (i = 0; i < 2; i++) {
+	for (i = 0; i < 2; i++)
+	{
 		printf("\n");
 	}
 	printf("\n\t---------------- Taper ENTREE pour continuer ----------------");
-	(void) litPremierCarac();
+	(void)litPremierCarac();
 }
 
-/* Procédure permettant d'ouvrir en lecture et d'afficher
+/* ProcÃ©dure permettant d'ouvrir en lecture et d'afficher
  le contenu d'un fichier */
-void ouvrirLecture(char* nomFichier) {
-	FILE* fichier;
+void ouvrirLecture(char *nomFichier)
+{
+	FILE *fichier;
 	char c;
 
-	/* Test de l'existence de fichier supposé fait en amont */
+	/* Test de l'existence de fichier supposÃ© fait en amont */
 	/* Ouverture en mode lecture */
 	fichier = fopen(nomFichier, "r");
-	do {
+	do
+	{
 		c = fgetc(fichier);
 		if (c != '/' && c != '*')
-			printf("%c", (char) c);
-		else {
+			printf("%c", (char)c);
+		else
+		{
 			if (c != '*')
 				printEntree();
 		}
 	} while (c != '*');
-	/* Sous Linux, demander l'affichage de tous les caractères contenus dans
-	 un fichier tant que le caractère lu soit différent de "EOF"
-	 "while(c!=EOF)" engendre l'apparition d'un caractère spécial à la fin
-	 de l'affichage à la sortie standrad qui doit représenter le retour chariot.
-	 Ainsi, dans cette procédure nous afficherons tous les caratères
-	 jusqu'à ce qu'il soit rencontré le caractère '*'. */
+	/* Sous Linux, demander l'affichage de tous les caractÃ¨res contenus dans
+	 un fichier tant que le caractÃ¨re lu soit diffÃ©rent de "EOF"
+	 "while(c!=EOF)" engendre l'apparition d'un caractÃ¨re spÃ©cial Ã  la fin
+	 de l'affichage Ã  la sortie standrad qui doit reprÃ©senter le retour chariot.
+	 Ainsi, dans cette procÃ©dure nous afficherons tous les caratÃ¨res
+	 jusqu'Ã  ce qu'il soit rencontrÃ© le caractÃ¨re '*'. */
 	fclose(fichier);
 }
-
