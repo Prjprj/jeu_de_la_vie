@@ -6,18 +6,18 @@
  ****************************/
 
 /* Definition des valeurs booleenes usuelles */
-#define TRUE	1
-#define FALSE	0
+#define TRUE 1
+#define FALSE 0
 
 /* Definition des constantes a propos de l'espace */
-#define ESPACE_CYLINDRIQUE	'C'
-#define ESPACE_CARRE		'K'
-#define ESPACE_TORIQUE		'T'
-#define ESPACE_PAR_DEFAUT	ESPACE_TORIQUE
+#define ESPACE_CYLINDRIQUE 'C'
+#define ESPACE_CARRE 'K'
+#define ESPACE_TORIQUE 'T'
+#define ESPACE_PAR_DEFAUT ESPACE_TORIQUE
 
 /* Definition de la constante de vitesse par defaut,
  à savoir la vitesse noramle: 2 */
-#define VITESSE_PAR_DEFAUT	2
+#define VITESSE_PAR_DEFAUT 2
 
 /* Definition des constantes pour les reponses aux boites de dialogue
  de la section parametres */

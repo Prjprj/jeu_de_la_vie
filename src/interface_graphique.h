@@ -5,34 +5,35 @@
  *						   *
  ***************************/
 
-//inclusion des bibliotheques necessaires a l'interface graphique
-#include<gtk/gtk.h>
-#include"var_globales.h"
-#include"jeu_de_la_vie.h"
+// inclusion des bibliotheques necessaires a l'interface graphique
+#include <gtk/gtk.h>
+#include "var_globales.h"
+#include "jeu_de_la_vie.h"
 
-//creation des types de donnees
-typedef GtkWidget* Fenetre;
-typedef GtkWidget* Label;
-typedef GtkWidget* Table;
-typedef GtkWidget* Bouton;
-typedef GtkWidget* BoiteHorizontale;
-typedef GtkWidget* BoiteVerticale;
-typedef GtkWidget* Image;
-typedef GtkWidget* Entree;
-typedef GtkWidget* PWidget;
+// creation des types de donnees
+typedef GtkWidget *Fenetre;
+typedef GtkWidget *Label;
+typedef GtkWidget *Table;
+typedef GtkWidget *Bouton;
+typedef GtkWidget *BoiteHorizontale;
+typedef GtkWidget *BoiteVerticale;
+typedef GtkWidget *Image;
+typedef GtkWidget *Entree;
+typedef GtkWidget *PWidget;
 
-//creation du type programme, compose d'une fenetre et
-//d'un nombre a choisir de labels, boutons, boites, images, entrees, tables et boutons de tables
-typedef struct {
+// creation du type programme, compose d'une fenetre et
+// d'un nombre a choisir de labels, boutons, boites, images, entrees, tables et boutons de tables
+typedef struct
+{
 	Fenetre fenetre;
-	Label* labels;
-	Bouton* boutons;
-	BoiteVerticale* boitesV;
-	BoiteHorizontale* boitesH;
-	Image* images;
-	Entree* entrees;
-	Table* tables;
-	Bouton** boutonsTables;
+	Label *labels;
+	Bouton *boutons;
+	BoiteVerticale *boitesV;
+	BoiteHorizontale *boitesH;
+	Image *images;
+	Entree *entrees;
+	Table *tables;
+	Bouton **boutonsTables;
 	int nbLabels;
 	int nbBoutons;
 	int nbBoitesV;
@@ -44,10 +45,10 @@ typedef struct {
 	int nbBoutonsTablesY;
 } Programme;
 
-//definition de la variable globale necessaire a l'interface graphique
+// definition de la variable globale necessaire a l'interface graphique
 extern Programme *pApp;
 
-//definition des prototypes des fonctions de l'interface graphique
+// definition des prototypes des fonctions de l'interface graphique
 void allocationDynGraph(int, int, int, int, int, int, int, int, int);
 
 void liberationDynamique(void);

@@ -8,11 +8,11 @@
 /* Variables globales necessaires à tout le jeu */
 extern Param parametres;
 
-extern int** matriceG;
-extern int** matriceTempG;
+extern int **matriceG;
+extern int **matriceTempG;
 
-extern Souche* soucheG;
-extern Souche* soucheTempG;
+extern Souche *soucheG;
+extern Souche *soucheTempG;
 
 extern int nbSouchesG;
 extern int stationnaire;
@@ -24,7 +24,7 @@ extern int xGener;
 extern int yGener;
 extern int soucheGener;
 extern int nbSouchesGener;
-extern int** matriceGener;
+extern int **matriceGener;
 
 extern int jeuEnCours;
 extern int generEnCours;

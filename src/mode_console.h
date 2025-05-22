@@ -32,7 +32,7 @@ Taille selectionTaille(void);
 void selectionSouches(int);
 
 /* Fonction permettant d'initialiser une matrice */
-int** initialisationMatrice(Taille, int);
+int **initialisationMatrice(Taille, int);
 
 /* Procédure permettant de lancer l'experience */
 void lancementDuJeu();
@@ -62,5 +62,4 @@ void printEntree(void);
 
 /* Procédure permettant d'ouvrir en lecture et d'afficher
  le contenu d'un fichier */
-void ouvrirLecture(char*);
-
+void ouvrirLecture(char *);
